@@ -16,6 +16,7 @@ const CartItems = () => {
         <p>Remove</p>
       </div>
       <hr />
+      <div>
       {all_product.map((e)=>{
         if (cartItems[e.id] > 0) {
           return (
@@ -37,9 +38,12 @@ const CartItems = () => {
                 />
               </div>
             </div>
-          );
+          )
         }
+        return null;
       })}
+      </div>
+      
     </div>
   );
 };
