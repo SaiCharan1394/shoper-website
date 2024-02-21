@@ -1,4 +1,4 @@
-import "./App.css";
+
 import Cart from "./Pages/Cart";
 import LoginSignup from "./Pages/LoginSignup";
 import Product from "./Pages/Product";
