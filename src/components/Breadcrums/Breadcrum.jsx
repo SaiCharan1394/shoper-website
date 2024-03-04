@@ -1,13 +1,18 @@
 import React from "react";
-import "./Breadcrum.css";
-import arrow_icon from "../Assets/breadcrum_arrow.png";
+import arrowIcon from "../Assets/breadcrum_arrow.png";
+
 const Breadcrum = (props) => {
   const { product } = props;
+
   return (
-    <div className="breadcrum">
-      Home <img src={arrow_icon} alt="" />
-      Shop <img src={arrow_icon} alt="" /> {product.category} 
-      <img src={arrow_icon} alt="" /> {product.name}
+    <div className="flex items-center gap-8 text-gray-500 text-base font-semibold capitalize mt-16 ml-40">
+      <span>Home</span>
+      <img src={arrowIcon} alt="Arrow Icon" className="mx-2" />
+      <span>Shop</span>
+      <img src={arrowIcon} alt="Arrow Icon" className="mx-2" />
+      <span>{product.category}</span>
+      <img src={arrowIcon} alt="Arrow Icon" className="mx-2" />
+      <span>{product.name}</span>
     </div>
   );
 };
