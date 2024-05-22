@@ -1,14 +1,13 @@
-import React from "react";
-import "./CartItems.css";
+import React, { useContext } from "react";
 import { ShopContext } from "../../Context/ShopContext";
-import { useContext } from "react";
 import remove_icon from "../Assets/cart_cross_icon.png";
+
 const CartItems = () => {
-  const { getTotalCartAmount, all_product, cartItems, removeFromCart } =
-    useContext(ShopContext);
+  const { getTotalCartAmount, all_product, cartItems, removeFromCart } = useContext(ShopContext);
+
   return (
-    <div className="cartitems">
-      <div className="cartitems-format-main">
+    <div className="mt-[100px] mx-[170px]">
+      <div className="grid grid-cols-[0.5fr_2fr_1fr_1fr_1fr_1fr] items-center gap-[75px] py-[20px] text-[#454545] text-[18px] font-semibold">
         <p>Products</p>
         <p>Title</p>
         <p>Price</p>
@@ -16,61 +15,67 @@ const CartItems = () => {
         <p>Total</p>
         <p>Remove</p>
       </div>
-      <hr />
+      <hr className="h-[3px] bg-[#e2e2e2] border-0" />
 
       {all_product.map((e) => {
         if (cartItems[e.id] > 0) {
           return (
-            <div>
-              <div className="cartitems-format cartitems-format-main">
-                <img src={e.image} alt="" className="carticon-product-icon" />
+            <div key={e.id}>
+              <div className="grid grid-cols-[0.5fr_2fr_1fr_1fr_1fr_1fr] items-center gap-[75px] py-[20px] text-[#454545] text-[17px] font-medium">
+                <img src={e.image} alt="" className="h-[62px]" />
                 <p>{e.name}</p>
                 <p>${e.new_price}</p>
-                <button className="cartitems-quantity">
-                  {cartItems[e.id]}
-                </button>
+                <button className="w-[64px] h-[50px] border-2 border-[#ebebeb] bg-white">{cartItems[e.id]}</button>
                 <p>${e.new_price * cartItems[e.id]}</p>
                 <img
-                  className="cartitems-remove-icon"
+                  className="w-[15px] mx-[40px] cursor-pointer"
                   src={remove_icon}
-                  onClick={() => {
-                    removeFromCart(e.id);
-                  }}
-                  alt=""
+                  onClick={() => removeFromCart(e.id)}
+                  alt="Remove"
                 />
               </div>
-              <hr />
+              <hr className="h-[3px] bg-[#e2e2e2] border-0" />
             </div>
           );
         }
         return null;
       })}
-      <div className="cartitems-down">
-        <div className="cartitems-total">
-          <h1>cart Totals</h1>
+
+      <div className="flex mt-[100px]">
+        <div className="flex flex-col flex-1 mr-[200px] gap-[40px]">
+          <h1>Cart Totals</h1>
           <div>
-            <div className="cartitems-total-item">
+            <div className="flex justify-between py-[15px]">
               <p>Subtotal</p>
               <p>${getTotalCartAmount()}</p>
             </div>
-            <hr />
-            <div className="cartitems-total-item">
+            <hr className="h-[3px] bg-[#e2e2e2] border-0" />
+            <div className="flex justify-between py-[15px]">
               <p>Shipping Fee</p>
               <p>Fee</p>
             </div>
-            <hr />
-            <div className="cartitems-total-item">
+            <hr className="h-[3px] bg-[#e2e2e2] border-0" />
+            <div className="flex justify-between py-[15px]">
               <h3>Total</h3>
               <h3>${getTotalCartAmount()}</h3>
             </div>
           </div>
-          <button>PROCEED TO CHECKOUT</button>
+          <button className="w-[262px] h-[58px] border-none bg-[#ff5a5a] text-white text-[16px] font-semibold cursor-pointer">
+            PROCEED TO CHECKOUT
+          </button>
         </div>
-        <div className="cartitems-promocode">
-          <p>If you have a promo code, Enter it here</p>
-          <div className="cartitems-promobox">
-            <input type="text" placeholder="promo code" />
-            <button>Submit</button>
+
+        <div className="flex-1 text-[16px] font-medium">
+          <p>If you have a promo code, enter it here</p>
+          <div className="w-[504px] mt-[15px] pl-[20px] h-[58px] bg-[#eaeaea] flex items-center">
+            <input
+              type="text"
+              placeholder="promo code"
+              className="border-none outline-none bg-transparent text-[16px] w-[330px] h-[50px]"
+            />
+            <button className="w-[170px] h-[58px] text-[16px] bg-black text-white cursor-pointer">
+              Submit
+            </button>
           </div>
         </div>
       </div>

@@ -1,71 +1,45 @@
-import React, { useContext } from "react";
-import "./Navbar.css";
-import { useState } from "react";
-import logo from "../Assets/logo.png";
-import cart_icon from "../Assets/cart_icon.png";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { ShopContext } from "../../Context/ShopContext";
+import logo from "../Assets/logo.png";
+import cart_icon from "../Assets/cart_icon.png";
+
 const Navbar = () => {
   const [menu, setMenu] = useState("shop");
-  const{getTotalCartItems}=useContext(ShopContext); 
+  const { getTotalCartItems } = useContext(ShopContext);
+
   return (
-    <div className="navbar">
-      <div className="nav-logo">
-        <img src={logo} alt="" />
-        <p>Shoper</p>
+    <div className="flex items-center justify-between px-4 py-2 bg-white shadow-md">
+      <div className="flex items-center">
+        <img src={logo} alt="Logo" className="h-8 mr-2" />
+        <p className="text-xl font-semibold text-gray-700">Shoper</p>
       </div>
-      <ul className="nav-menu">
-        <li
-          onClick={() => {
-            setMenu("shop");
-          }}
-        >
-          <Link style={{ textDecoration: "none" }} to="/">
-            Shop
-          </Link>
-          {menu === "shop" ? <hr /> : <></>}
-        </li>
-        <li
-          onClick={() => {
-            setMenu("mens");
-          }}
-        >
-          <Link style={{ textDecoration: "none" }} to="/mens">
-            Men
-          </Link>
-          {menu === "mens" ? <hr /> : <></>}
-        </li>
-        <li
-          onClick={() => {
-            setMenu("womens");
-          }}
-        >
-          <Link style={{ textDecoration: "none" }} to="/womens">
-            Women
-          </Link>
-          {menu === "womens" ? <hr /> : <></>}
-        </li>
-        <li
-          onClick={() => {
-            setMenu("kids");
-          }}
-        >
-          <Link style={{ textDecoration: "none" }} to="/kids">
-            Kids
-          </Link>
-          {menu === "kids" ? <hr /> : <></>}
-        </li>
+      <ul className="flex space-x-4">
+        <NavItem name="Shop" path="/" menu={menu} setMenu={setMenu} />
+        <NavItem name="Men" path="/mens" menu={menu} setMenu={setMenu} />
+        <NavItem name="Women" path="/womens" menu={menu} setMenu={setMenu} />
+        <NavItem name="Kids" path="/kids" menu={menu} setMenu={setMenu} />
       </ul>
-      <div className="nav-login-cart">
-        <Link style={{ textDecoration: "none" }} to="/login">
-          <button>Login</button>
+      <div className="flex items-center space-x-4">
+        <Link to="/login">
+          <button className="w-32 h-12 border border-gray-400 rounded-full text-gray-700 text-lg font-semibold hover:bg-gray-100 transition duration-300">Login</button>
         </Link>
-        <Link style={{ textDecoration: "none" }} to="/cart">
-          <img src={cart_icon} alt="" />
+        <Link to="/cart" className="relative">
+          <img src={cart_icon} alt="Cart" className="h-8" />
+          <div className="absolute top-0 right-0 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs">
+            {getTotalCartItems()}
+          </div>
         </Link>
-        <div className="nav-cart-count">{getTotalCartItems()}</div>
       </div>
     </div>
+  );
+};
+
+const NavItem = ({ name, path, menu, setMenu }) => {
+  return (
+    <li onClick={() => setMenu(name.toLowerCase())} className={menu === name.toLowerCase() ? "border-b-2 border-red-500" : ""}>
+      <Link to={path} className="text-lg font-semibold text-gray-700">{name}</Link>
+    </li>
   );
 };
 

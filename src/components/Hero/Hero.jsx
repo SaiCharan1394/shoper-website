@@ -1,28 +1,30 @@
 import React from "react";
-import "./Hero.css";
 import hand_icon from "../Assets/hand_icon.png";
 import arrow_icon from "../Assets/arrow.png";
 import hero_image from "../Assets/hero_image.png";
+
 const Hero = () => {
   return (
-    <div className="hero">
-      <div className="hero-left">
-        <h2>NEW ARRIVALS ONLY</h2>
-        <div>
-          <div className="hero-hand-icon">
-            <p>new</p>
-            <img src={hand_icon} alt="" />
+    <div className="flex h-screen bg-gradient-to-b from-pink-100 to-green-50">
+      <div className="flex-1 flex flex-col justify-center gap-20 pl-20">
+        <h2 className="text-black text-2xl lg:text-3xl font-semibold">NEW ARRIVALS ONLY</h2>
+        <div className="flex flex-col items-center lg:items-start gap-4">
+          <div className="flex items-center gap-4">
+            <p className="text-gray-800 text-lg font-semibold">new</p>
+            <img src={hand_icon} alt="New icon" className="h-12" />
           </div>
-          <p>collections</p>
-          <p>for everyone</p>
+          <p className="text-gray-800 text-4xl lg:text-6xl font-bold">collections</p>
+          <p className="text-gray-800 text-4xl lg:text-6xl font-bold">for everyone</p>
         </div>
-        <div className="hero-latest-btn">
-          <div>Latest Collection</div>
-          <img src={arrow_icon} alt="" />
+        <div className="flex items-center">
+          <div className="bg-black text-white py-4 px-12 rounded-full text-lg font-semibold shadow-md hover:bg-gray-800 transition duration-300">
+            Latest Collection
+          </div>
+          <img src={arrow_icon} alt="Arrow icon" className="ml-4 h-6 w-6" />
         </div>
       </div>
-      <div className="hero-right">
-        <img src={hero_image} alt="" />
+      <div className="flex-1 flex justify-center items-center">
+        <img src={hero_image} alt="Hero image" className="max-w-lg lg:max-w-full" />
       </div>
     </div>
   );
