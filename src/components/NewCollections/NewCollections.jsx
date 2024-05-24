@@ -4,10 +4,10 @@ import Item from "../Item/Item";
 
 const NewCollections = () => {
   return (
-    <div className="flex flex-col items-center gap-10 mb-16">
+    <div className="flex flex-col items-center gap-10 mb-16 bg-orange-600">
       <h1 className="text-4xl font-bold text-gray-800">NEW COLLECTIONS</h1>
       <hr className="w-full max-w-4xl h-2 bg-gray-800 rounded-full" />
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-6 mt-10">
+      <div className="mt-10 flex flex-wrap justify-center gap-6">
         {new_collections.map((item, i) => (
           <Item
             key={i}

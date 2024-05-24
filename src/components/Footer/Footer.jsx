@@ -6,12 +6,12 @@ import whatsapp_icon from "../Assets/whatsapp_icon.png";
 
 const Footer = () => {
   return (
-    <div className="flex flex-col justify-center items-center gap-[50px]">
+    <div className="flex flex-col justify-center items-center gap-[50px] bg-red-950">
       <div className="flex items-center gap-[20px]">
         <img src={footer_logo} alt="Shoper logo" className="h-[50px]" />
         <p className="text-[46px] font-bold text-[#383838]">Shoper</p>
       </div>
-      <ul className="flex list-none gap-[50px] text-[#252525] text-[20px]">
+      <ul className="flex-col md:flex-row md:flex list-none gap-[50px] text-[#252525] text-[20px]">
         <li className="cursor-pointer">Company</li>
         <li className="cursor-pointer">Products</li>
         <li className="cursor-pointer">Offices</li>
