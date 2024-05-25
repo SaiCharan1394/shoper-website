@@ -4,7 +4,7 @@ import Item from "../Item/Item";
 
 const Popular = () => {
   return (
-    <div className="popular flex flex-col items-center gap-10 h-90vh pt-10 bg-slate-600">
+    <div className="popular flex flex-col items-center gap-10 h-90vh pt-10">
       <h1 className="text-gray-700 text-4xl font-semibold">POPULAR IN WOMEN</h1>
       <hr className="w-full max-w-screen-2xl h-1 bg-gray-900 rounded-lg" />
       <div className="popular-item mt-10 flex flex-wrap justify-center gap-6">
@@ -26,3 +26,7 @@ const Popular = () => {
 };
 
 export default Popular;
+
+
+        
+      

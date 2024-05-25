@@ -8,7 +8,7 @@ const ShopCategory = (props) => {
 
   return (
     <div className="shop-category">
-      <img className="shopcategory-banner" src={props.banner} alt="" />
+      <img className="w-full" src={props.banner} alt="" />
       <div className="flex justify-between items-center mx-20 md:mx-40 mb-10">
         <p>
           <span className="font-semibold">Showing 1-12</span> out of 36 products
@@ -17,7 +17,7 @@ const ShopCategory = (props) => {
           Sort by <img src={dropdown_icon} alt="" className="ml-2" />
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-10 px-20 md:px-40 mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-auto justify-items-center mb-10">
         {all_product.map((item, i) => {
           if (props.category === item.category) {
             return (

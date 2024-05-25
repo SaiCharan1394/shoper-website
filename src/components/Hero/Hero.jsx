@@ -5,7 +5,7 @@ import hero_image from "../Assets/hero_image.png";
 
 const Hero = () => {
   return (
-    <div className="flex-col justify-center items-center md:flex md:flex-row  bg-black">
+    <div className="flex-col justify-center items-center md:flex md:flex-row  bg-gradient-to-b from-pink-100 to-green-50">
       <div className="flex-1 flex flex-col justify-center items-center gap-20 pt-10">
         <h2 className="text-black text-2xl lg:text-3xl font-semibold">NEW ARRIVALS ONLY</h2>
         <div className="flex flex-col lg:items-start gap-4">

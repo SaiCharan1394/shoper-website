@@ -14,26 +14,30 @@ const Navbar = () => {
   };
 
   return (
-    <div className="flex items-center justify-between px-4 py-2 bg-green-500 shadow-md relative">
+    <div className="flex items-center justify-between px-4 py-2 bg-white shadow-md relative">
       <div className="flex items-center">
         <img src={logo} alt="Logo" className="h-8 mr-2" />
         <p className="text-xl font-semibold text-gray-700">Shoper</p>
       </div>
-      {!dropdownOpen && (
-        <div className="md:hidden">
-          <button onClick={toggleDropdown} className="focus:outline-none">
+      <div className="md:hidden">
+        <ul onClick={toggleDropdown}>
           <p>Categories</p>
-          </button>
-        </div>
-      )}
-      <ul className={`flex-col md:flex-row md:flex space-x-4 ${dropdownOpen ? "flex absolute top-5 " : "hidden"} md:block`}>
+        </ul>
+      </div>
+      <ul
+        className={`flex-col md:flex-row md:flex space-x-4 ${
+          dropdownOpen
+            ? "flex absolute  top-5  bg-white p-4 focus:outline-none"
+            : "hidden"
+        } md:block`}
+      >
         <NavItem name="Shop" path="/" menu={menu} setMenu={setMenu} />
         <NavItem name="Men" path="/mens" menu={menu} setMenu={setMenu} />
         <NavItem name="Women" path="/womens" menu={menu} setMenu={setMenu} />
         <NavItem name="Kids" path="/kids" menu={menu} setMenu={setMenu} />
       </ul>
       <div className="flex items-center space-x-4">
-        <Link to="/login">
+        <Link to="/login" className="sm:hidden md:block">
           <button className="w-32 h-12 border border-gray-400 rounded-full text-gray-700 text-lg font-semibold hover:bg-gray-100 transition duration-300">
             Login
           </button>
