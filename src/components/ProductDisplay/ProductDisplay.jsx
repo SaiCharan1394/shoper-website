@@ -8,11 +8,10 @@ const ProductDisplay = (props) => {
   const { addToCart } = useContext(ShopContext);
 
   return (
-    <div className="flex mx-10">
+    <div className="md:flex mx-10 sm:my-10 md:my-0 ">
       {/* Left Side */}
       <div className="flex gap-4">
-        <div className="flex flex-col gap-4">
-          <img src={product.image} alt="" className="h-40" />
+        <div className="flex flex-col gap-4 ">
           <img src={product.image} alt="" className="h-40" />
           <img src={product.image} alt="" className="h-40" />
           <img src={product.image} alt="" className="h-40" />
@@ -23,7 +22,7 @@ const ProductDisplay = (props) => {
       </div>
 
       {/* Right Side */}
-      <div className="flex flex-col ml-20">
+      <div className="flex flex-col md:ml-20">
         <h1 className="text-gray-700 text-3xl font-semibold">{product.name}</h1>
         <div className="flex items-center mt-3 gap-2 text-gray-600 text-lg">
           <img src={star_icon} alt="" />
@@ -41,7 +40,7 @@ const ProductDisplay = (props) => {
           <p className="mt-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur deserunt optio nam perferendis voluptatem.</p>
           <div className="mt-6">
             <h1 className="text-gray-600 text-lg font-semibold">Select Size</h1>
-            <div className="flex mt-2 gap-4">
+            <div className="flex flex-wrap mt-2 gap-4">
               <div className="px-6 py-2 bg-gray-100 border border-gray-300 rounded cursor-pointer">S</div>
               <div className="px-6 py-2 bg-gray-100 border border-gray-300 rounded cursor-pointer">M</div>
               <div className="px-6 py-2 bg-gray-100 border border-gray-300 rounded cursor-pointer">L</div>

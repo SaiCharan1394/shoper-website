@@ -19,23 +19,28 @@ const Navbar = () => {
         <img src={logo} alt="Logo" className="h-8 mr-2" />
         <p className="text-xl font-semibold text-gray-700">Shoper</p>
       </div>
-      <div className="md:hidden">
-        <ul onClick={toggleDropdown}>
-          <p>Categories</p>
-        </ul>
-      </div>
+      <div className="relative ">
+      <ul onClick={toggleDropdown} className="cursor-pointer md:hidden">
+        <p>Categories</p>
+      </ul>
       <ul
         className={`flex-col md:flex-row md:flex space-x-4 ${
           dropdownOpen
-            ? "flex absolute  top-5  bg-white p-4 focus:outline-none"
+            ? "flex absolute top-6 left-4 bg-white p-4 shadow-lg rounded-md ring-1 ring-black ring-opacity-5 focus:outline-none "
             : "hidden"
-        } md:block`}
+        } `}
       >
         <NavItem name="Shop" path="/" menu={menu} setMenu={setMenu} />
         <NavItem name="Men" path="/mens" menu={menu} setMenu={setMenu} />
         <NavItem name="Women" path="/womens" menu={menu} setMenu={setMenu} />
         <NavItem name="Kids" path="/kids" menu={menu} setMenu={setMenu} />
+        <Link to="/login" className="sm:block md:hidden">
+          <button class="text-lg font-semibold text-gray-700">
+            Login
+          </button>
+        </Link>
       </ul>
+    </div>
       <div className="flex items-center space-x-4">
         <Link to="/login" className="sm:hidden md:block">
           <button className="w-32 h-12 border border-gray-400 rounded-full text-gray-700 text-lg font-semibold hover:bg-gray-100 transition duration-300">

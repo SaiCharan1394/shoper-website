@@ -6,8 +6,8 @@ const CartItems = () => {
   const { getTotalCartAmount, all_product, cartItems, removeFromCart } = useContext(ShopContext);
 
   return (
-    <div className="mt-[100px] mx-[170px]">
-      <div className="grid grid-cols-[0.5fr_2fr_1fr_1fr_1fr_1fr] items-center gap-[75px] py-[20px] text-[#454545] text-[18px] font-semibold">
+    <div className="md:mt-[100px] md:mx-[170px] sm:mt-[10px] sm:mx-[17px]">
+      <div className="md:grid md:grid-cols-[0.5fr_2fr_1fr_1fr_1fr_1fr] items-center gap-[75px] py-[20px] text-[#454545] text-[18px] font-semibold ">
         <p>Products</p>
         <p>Title</p>
         <p>Price</p>
@@ -15,7 +15,7 @@ const CartItems = () => {
         <p>Total</p>
         <p>Remove</p>
       </div>
-      <hr className="h-[3px] bg-[#e2e2e2] border-0" />
+      <hr className="h-[3px] bg-[#e2e2e2] border-0 sm:hidden md:block" />
 
       {all_product.map((e) => {
         if (cartItems[e.id] > 0) {
@@ -41,8 +41,8 @@ const CartItems = () => {
         return null;
       })}
 
-      <div className="flex mt-[100px]">
-        <div className="flex flex-col flex-1 mr-[200px] gap-[40px]">
+      <div className="flex mt-[100px] sm:flex-col sm:gap-6 "> 
+        <div className="flex flex-col flex-1 mr-[200px] gap-[40px] sm:order-2 md:order-1">
           <h1>Cart Totals</h1>
           <div>
             <div className="flex justify-between py-[15px]">
@@ -65,15 +65,15 @@ const CartItems = () => {
           </button>
         </div>
 
-        <div className="flex-1 text-[16px] font-medium">
+        <div className="flex-1 text-[16px] font-medium sm:order-1 md:order-2">
           <p>If you have a promo code, enter it here</p>
-          <div className="w-[504px] mt-[15px] pl-[20px] h-[58px] bg-[#eaeaea] flex items-center">
+          <div className="md:w-[504px] sm:w-[345px] mt-[15px] pl-[20px] h-[58px] bg-[#eaeaea] flex items-center">
             <input
               type="text"
               placeholder="promo code"
-              className="border-none outline-none bg-transparent text-[16px] w-[330px] h-[50px]"
+              className="border-none outline-none bg-transparent text-[16px] w-[330px] h-[50px] "
             />
-            <button className="w-[170px] h-[58px] text-[16px] bg-black text-white cursor-pointer">
+            <button className="w-[170px] h-[58px] text-[16px] bg-black text-white cursor-pointer ">
               Submit
             </button>
           </div>

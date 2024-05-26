@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Item = (props) => {
   return (
-    <div className="w-80 sm:w-96 bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105">
+    <div className="w-80 sm:w-70 bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105">
       <Link to={`/product/${props.id}`}>
         <img
           onClick={() => window.scrollTo(0, 0)}

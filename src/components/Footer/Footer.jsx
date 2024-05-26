@@ -11,7 +11,7 @@ const Footer = () => {
         <img src={footer_logo} alt="Shoper logo" className="h-[50px]" />
         <p className="text-[46px] font-bold text-[#383838]">Shoper</p>
       </div>
-      <ul className="flex-col md:flex-row md:flex list-none gap-[50px] text-[#252525] text-[20px]">
+      <ul className="sm:grid sm:grid-cols-2 md:flex-row md:flex list-none gap-[50px] text-[#252525] text-[20px]">
         <li className="cursor-pointer">Company</li>
         <li className="cursor-pointer">Products</li>
         <li className="cursor-pointer">Offices</li>

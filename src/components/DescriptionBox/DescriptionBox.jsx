@@ -2,7 +2,7 @@ import React from 'react';
 
 const DescriptionBox = () => {
   return (
-    <div className='mt-[120px] mx-[170px]'>
+    <div className='md:my-[30px] md:mx-[170px] sm:mx-[20px]'>
       <div className="flex">
         <div className="flex items-center justify-center text-[16px] font-semibold w-[171px] h-[70px] border border-[#d0d0d0]">
           Description
